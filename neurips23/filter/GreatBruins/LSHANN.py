@@ -75,7 +75,7 @@ class LSHANN(BaseFilterANN):
         # If we don't find any potential neighbors in the hashed buckets
         # we'll consider all the data points as potential neighbors
         if not potential_neighbors:
-            potential_neighbors = set(map(map, self.data))
+            potential_neighbors = set(map(tuple, self.data))
 
         closest = min(potential_neighbors, key=lambda x: distance(x, query_point))
         return closest
